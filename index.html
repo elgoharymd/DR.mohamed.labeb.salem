@@ -1,0 +1,2773 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أ.د:محمد لبيب سالم</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAd_KwAlFC_QiVp3yyz3FjsTcvONhQE3kP32b5xwkY8S4kZro0k0d4Uk_tM_qSZixBR1se7wnOcSSShCbmvgyB3YVIN5h5evF8tl1qI_K-UJYpPSzFHIiDaqwaH5V0QmiIo2EnZbLU1nlfYvEO6lJsMq71aXIjUEnHhmCHLoTQHrJwr5eFziRKPxSJOhR_/s678/IMG-20250711-WA0212.jpg">
+    
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #1a252f;
+            --text-color: #333;
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --section-bg: #ffffff;
+            --card-bg: #f8f9fa;
+            --overlay-bg: rgba(0, 0, 0, 0.7);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --glow-color: rgba(52, 152, 219, 0.5);
+            --border-radius: 10px;
+            --site-name: "البروفيسور";
+            --gradient-start: #3498db;
+            --gradient-end: #2c3e50;
+            --button-bg: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            --animation-type: 'fadeIn';
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: var(--transition);
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body.maintenance-mode {
+            filter: grayscale(100%);
+            pointer-events: none;
+            user-select: none;
+        }
+        
+        body.maintenance-mode::after {
+            content: "الموقع قيد الصيانة، سنعود قريبًا";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            z-index: 99999;
+        }
+        
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .bg-animation.active {
+            opacity: 0.1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: 2rem 0;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+        }
+        
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .profile-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .profile-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .profile-info h1::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--secondary-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-info h1:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .profile-info .title {
+            font-size: 1.2rem;
+            color: var(--light-color);
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        
+        .dark-mode-toggle {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 100;
+        }
+        
+        .dark-mode-toggle:hover {
+            transform: rotate(30deg);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        nav {
+            background-color: white;
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            margin: -30px auto 0;
+            position: relative;
+            z-index: 10;
+            max-width: 95%;
+            transition: var(--transition);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+        }
+        
+        .nav-links a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem 1rem;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--secondary-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-links a:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links i {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover i {
+            transform: translateY(-5px);
+            color: var(--secondary-color);
+        }
+        
+        .nav-links span {
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        main {
+            padding: 3rem 0;
+        }
+        
+        /* نافذة المحتوى العائمة */
+        .floating-section {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            background-color: var(--section-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow-y: auto;
+            padding: 30px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .floating-section.glow-border {
+            box-shadow: 0 0 15px var(--glow-color), 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .floating-section.modern-design {
+            background: linear-gradient(135deg, var(--section-bg), #f5f7fa);
+            border: none;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .floating-section.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        .floating-section .close-btn {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+        
+        .floating-section .close-btn:hover {
+            transform: rotate(90deg);
+            background-color: #c0392b;
+        }
+        
+        .floating-section .section-content {
+            margin-top: 20px;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay-bg);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .section-title {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+            border-radius: 3px;
+        }
+        
+        .section-title h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+        
+        .section-title i {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+        
+        .section-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-left: 4px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card.glow-border {
+            box-shadow: 0 0 10px var(--glow-color), 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .card.modern-design {
+            background: linear-gradient(135deg, var(--card-bg), #ffffff);
+            border: none;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3));
+            transform: translateX(-100%);
+            transition: var(--transition);
+        }
+        
+        .card:hover::before {
+            transform: translateX(0);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title i {
+            margin-left: 10px;
+            color: var(--accent-color);
+        }
+        
+        .card-content {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .card-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 2px;
+        }
+        
+        .card-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .card-link:hover::after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+        
+        /* أزرار احترافية محسنة */
+        .buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .custom-btn {
+            position: relative;
+            padding: 15px 35px;
+            min-width: 200px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: var(--transition);
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.5;
+        }
+        
+        .custom-btn.glow-border {
+            box-shadow: 0 0 15px var(--glow-color), 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .custom-btn.modern-design {
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, var(--section-bg), #f5f7fa);
+        }
+        
+        .custom-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3));
+            transform: translateX(-100%);
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .custom-btn:hover::before {
+            transform: translateX(0);
+        }
+        
+        .custom-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .custom-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .custom-btn i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .btn-primary {
+            background: var(--button-bg);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(45deg, #6c757d, #495057);
+            color: white;
+        }
+        
+        .btn-success {
+            background: linear-gradient(45deg, #28a745, #218838);
+            color: white;
+        }
+        
+        .btn-danger {
+            background: linear-gradient(45deg, #dc3545, #c82333);
+            color: white;
+        }
+        
+        .btn-warning {
+            background: linear-gradient(45deg, #ffc107, #e0a800);
+            color: #212529;
+        }
+        
+        .btn-info {
+            background: linear-gradient(45deg, #17a2b8, #138496);
+            color: white;
+        }
+        
+        /* رسائل التنبيه */
+        .alert-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            max-width: 400px;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-30px);
+            transition: all 0.3s ease;
+        }
+        
+        .alert-message.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .alert-content {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            display: flex;
+            align-items: center;
+            border-right: 5px solid var(--secondary-color);
+        }
+        
+        .alert-close {
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #777;
+            transition: var(--transition);
+        }
+        
+        .alert-close:hover {
+            color: var(--accent-color);
+        }
+        
+        .alert-icon {
+            margin-left: 15px;
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+        }
+        
+        .alert-text {
+            flex: 1;
+            font-weight: 500;
+        }
+        
+        .alert-success .alert-content {
+            border-right-color: #28a745;
+        }
+        
+        .alert-success .alert-icon {
+            color: #28a745;
+        }
+        
+        .alert-error .alert-content {
+            border-right-color: var(--accent-color);
+        }
+        
+        .alert-error .alert-icon {
+            color: var(--accent-color);
+        }
+        
+        .alert-warning .alert-content {
+            border-right-color: #ffc107;
+        }
+        
+        .alert-warning .alert-icon {
+            color: #ffc107;
+        }
+        
+        /* لوحة التحكم الإدارية */
+        .admin-panel {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 450px;
+            height: 100vh;
+            background-color: var(--section-bg);
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.2);
+            z-index: 2000;
+            transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 25px;
+            overflow-y: auto;
+        }
+        
+        .admin-panel.active {
+            right: 0;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .admin-header h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .admin-header h3 i {
+            color: var(--accent-color);
+        }
+        
+        .close-admin {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--accent-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .close-admin:hover {
+            background-color: rgba(231, 76, 60, 0.1);
+            transform: rotate(90deg);
+        }
+        
+        .admin-tabs {
+            margin-top: 20px;
+        }
+        
+        .admin-tab-buttons {
+            display: flex;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .admin-tab-btn {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-color);
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .admin-tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            right: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        .admin-tab-btn.active {
+            color: var(--secondary-color);
+        }
+        
+        .admin-tab-btn.active::after {
+            width: 100%;
+        }
+        
+        .admin-tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .admin-tab-content.active {
+            display: block;
+        }
+        
+        .admin-form-group {
+            margin-bottom: 20px;
+        }
+        
+        .admin-form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+        
+        .admin-form-group input,
+        .admin-form-group select,
+        .admin-form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Tajawal', sans-serif;
+            transition: var(--transition);
+            background-color: var(--card-bg);
+            color: var(--text-color);
+        }
+        
+        .admin-form-group input:focus,
+        .admin-form-group select:focus,
+        .admin-form-group textarea:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            outline: none;
+        }
+        
+        .admin-form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* أزرار الأدمن المحسنة */
+        .admin-btn {
+            background: linear-gradient(45deg, var(--secondary-color), #2980b9);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            min-height: 50px;
+        }
+        
+        .admin-btn:hover {
+            background: linear-gradient(45deg, #2980b9, var(--secondary-color));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .admin-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* نافذة كلمة المرور */
+        .password-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        
+        .password-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .password-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(20px);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .password-modal.active .password-box {
+            transform: translateY(0);
+        }
+        
+        .password-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+        }
+        
+        .password-box h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .password-box input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .password-box input:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            outline: none;
+        }
+        
+        .password-box button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, var(--secondary-color), #2980b9);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .password-box button:hover {
+            background: linear-gradient(45deg, #2980b9, var(--secondary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .password-box button:active {
+            transform: translateY(0);
+        }
+        
+        #passwordError {
+            color: var(--accent-color);
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+            font-weight: 500;
+        }
+        
+        /* Color Picker */
+        .color-picker {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+        
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-option.selected {
+            border-color: var(--text-color);
+            transform: scale(1.1);
+        }
+        
+        /* Gradient Preview */
+        .gradient-preview {
+            width: 100%;
+            height: 60px;
+            border-radius: 8px;
+            margin: 15px 0;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            border: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        /* Animation Selector */
+        .animation-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .animation-option {
+            padding: 10px;
+            border-radius: 8px;
+            background-color: var(--card-bg);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .animation-option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        
+        .animation-option.selected {
+            background-color: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+        
+        /* التصميم للوضع المظلم */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+            --section-bg: #1e1e1e;
+            --card-bg: #2d2d2d;
+            --text-color: #e0e0e0;
+            --overlay-bg: rgba(0, 0, 0, 0.8);
+            --glow-color: rgba(52, 152, 219, 0.3);
+        }
+        
+        .dark-mode nav {
+            background-color: #1e1e1e;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .dark-mode .nav-links a {
+            color: #e0e0e0;
+        }
+        
+        .dark-mode .floating-section {
+            background-color: var(--section-bg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .dark-mode .card {
+            background-color: var(--card-bg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .dark-mode .admin-form-group input,
+        .dark-mode .admin-form-group select,
+        .dark-mode .admin-form-group textarea {
+            background-color: #252525;
+            border-color: #444;
+            color: #e0e0e0;
+        }
+        
+        .dark-mode .password-box {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+        
+        .dark-mode .password-box input {
+            background-color: #252525;
+            border-color: #444;
+            color: #e0e0e0;
+        }
+        
+        .dark-mode .alert-content {
+            background-color: #2d2d2d;
+            color: #e0e0e0;
+        }
+        
+        .dark-mode .alert-close {
+            color: #aaa;
+        }
+        
+        .dark-mode .color-option.selected {
+            border-color: #e0e0e0;
+        }
+        
+        /* تأثيرات النقر */
+        .click-effect {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%) scale(0);
+            pointer-events: none;
+            z-index: 9999;
+            animation: clickEffect 0.5s ease-out;
+        }
+        
+        @keyframes clickEffect {
+            to {
+                transform: translate(-50%, -50%) scale(3);
+                opacity: 0;
+            }
+        }
+        
+        /* تأثير التحميل */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        
+        .loading-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--secondary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* التجاوب مع أحجام الشاشات */
+        @media (max-width: 992px) {
+            .admin-panel {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+            }
+            
+            .nav-links li {
+                min-width: 100%;
+            }
+            
+            .section-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .floating-section {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            .admin-tab-buttons {
+                flex-direction: column;
+            }
+            
+            .admin-tab-btn {
+                width: 100%;
+                text-align: right;
+            }
+            
+            .custom-btn {
+                min-width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .profile-info h1 {
+                font-size: 2rem;
+            }
+            
+            .profile-info .title {
+                font-size: 1rem;
+            }
+            
+            .floating-section {
+                padding: 15px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .alert-message {
+                max-width: 90%;
+                right: 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- تأثير النقر -->
+    <div id="clickEffect"></div>
+    
+    <!-- تأثير التحميل -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+    
+    <!-- رسائل التنبيه -->
+    <div class="alert-message" id="alertMessage">
+        <div class="alert-content">
+            <span class="alert-close" id="alertClose">&times;</span>
+            <div class="alert-icon"></div>
+            <div class="alert-text" id="alertText"></div>
+        </div>
+    </div>
+    
+    <!-- تأثير الخلفية المضيئة -->
+    <canvas id="bgAnimation" class="bg-animation"></canvas>
+    
+    <header>
+        <button class="dark-mode-toggle" id="darkModeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
+        <div class="container">
+            <div class="profile-section">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAd_KwAlFC_QiVp3yyz3FjsTcvONhQE3kP32b5xwkY8S4kZro0k0d4Uk_tM_qSZixBR1se7wnOcSSShCbmvgyB3YVIN5h5evF8tl1qI_K-UJYpPSzFHIiDaqwaH5V0QmiIo2EnZbLU1nlfYvEO6lJsMq71aXIjUEnHhmCHLoTQHrJwr5eFziRKPxSJOhR_/s678/IMG-20250711-WA0212.jpg" alt="صورة البروفيسور" class="profile-image" id="adminTrigger">
+                <div class="profile-info">
+                    <h1>أ.د: محمد لبيب سالم</h1>
+                    <p class="title">أستاذ علم المناعة بكلية العلوم – جامعة طنطا – مصر</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <ul class="nav-links">
+            <li>
+                <a href="#" data-section="about">
+                    <i class="fas fa-user-tie"></i>
+                    <span>من أنا</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" data-section="media">
+                    <i class="fas fa-newspaper"></i>
+                    <span>الصحافة والإعلام</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" data-section="research">
+                    <i class="fas fa-flask"></i>
+                    <span>بحوث علمية</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" data-section="videos">
+                    <i class="fas fa-video"></i>
+                    <span>فيديوهات بحثية</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" data-section="books">
+                    <i class="fas fa-book-open"></i>
+                    <span>كتب وروايات</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" data-section="articles">
+                    <i class="fas fa-pen-fancy"></i>
+                    <span>مقالات</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+    <main class="container">
+        <!-- سيتم تحميل المحتوى ديناميكيًا في الأقسام العائمة -->
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>جميع الحقوق محفوظة &copy; <span id="year"></span> <span id="siteName">أ
+            د:محمد ابيب سالم</span></p>
+        </div>
+    </footer>
+    
+    <!-- الأقسام العائمة -->
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- قسم من أنا العائم -->
+    <div class="floating-section" id="floatingAbout">
+        <button class="close-btn" id="closeFloatingAbout"><i class="fas fa-times"></i></button>
+        <div class="section-title">
+            <i class="fas fa-user-tie"></i>
+            <h2>السيرة الذاتية</h2>
+        </div>
+        <div class="section-content" id="aboutContent">
+            <!-- المحتوى الافتراضي للسيرة الذاتية -->
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-graduation-cap"></i> المؤهلات العلمية</h3>
+                <p class="card-content">
+                    - بكالوريوس العلوم - كلية العلوم – جامعة طنطا.<br>
+                    - ماجستير في علم الحيوان – كلية العلوم – جامعة طنطا.<br>
+                    - دكتوراه الفلسفة في العلوم – جامعة توهوكو اليابانية.
+                </p>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-briefcase"></i> الخبرات</h3>
+                <p class="card-content">
+                    - رئيس قسم علم الحيوان الأسبق بكلية العلوم – جامعة طنطا.<br>
+                    - مدير مركز التميز العلمي لأبحاث السرطان.<br>
+                    - مدير وحدة زرع الخلايا والأنسجة بكلية العلوم.<br>
+                    - مدير مركز بحوث البيئة والتكنولوجيا الذكية بجامعة طنطا.
+                </p>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-trophy"></i> الإسهامات العلمية</h3>
+                <p class="card-content">
+                    - نشر أكثر من 150 بحثاً في مجلات دولية مرموقة في مجالات المناعة والسرطان.<br>
+                    - الإشراف على العديد من رسائل الماجستير والدكتوراه.<br>
+                    - الحصول على جوائز محلية ودولية في البحث العلمي.
+                </p>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-users"></i> الأنشطة المجتمعية</h3>
+                <p class="card-content">
+                    - تقديم ندوات توعوية في مجال الصحة والمناعة.<br>
+                    - المشاركة في مبادرات دعم البحث العلمي في مصر والعالم العربي.<br>
+                    - عضو في العديد من اللجان العلمية والمهنية.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- قسم الصحافة والإعلام العائم -->
+    <div class="floating-section" id="floatingMedia">
+        <button class="close-btn" id="closeFloatingMedia"><i class="fas fa-times"></i></button>
+        <div class="section-title">
+            <i class="fas fa-newspaper"></i>
+            <h2>الصحافة والإعلام</h2>
+        </div>
+        <div class="section-content">
+            <!-- المحتوى سيتم تحميله من Firebase -->
+            <p style="text-align:center;color:#777;grid-column:1/-1;">جاري تحميل المحتوى...</p>
+        </div>
+        <div class="buttons-container">
+            <!-- الأزرار سيتم تحميلها من Firebase -->
+        </div>
+    </div>
+    
+    <!-- قسم البحوث العلمية العائم -->
+    <div class="floating-section" id="floatingResearch">
+        <button class="close-btn" id="closeFloatingResearch"><i class="fas fa-times"></i></button>
+        <div class="section-title">
+            <i class="fas fa-flask"></i>
+            <h2>بحوث علمية</h2>
+        </div>
+        <div class="section-content">
+            <!-- المحتوى سيتم تحميله من Firebase -->
+            <p style="text-align:center;color:#777;grid-column:1/-1;">جاري تحميل المحتوى...</p>
+        </div>
+        <div class="buttons-container">
+            <!-- الأزرار سيتم تحميلها من Firebase -->
+        </div>
+    </div>
+    
+    <!-- قسم الفيديوهات البحثية العائم -->
+    <div class="floating-section" id="floatingVideos">
+        <button class="close-btn" id="closeFloatingVideos"><i class="fas fa-times"></i></button>
+        <div class="section-title">
+            <i class="fas fa-video"></i>
+            <h2>فيديوهات بحثية</h2>
+        </div>
+        <div class="section-content">
+            <!-- المحتوى سيتم تحميله من Firebase -->
+            <p style="text-align:center;color:#777;grid-column:1/-1;">جاري تحميل المحتوى...</p>
+        </div>
+        <div class="buttons-container">
+            <!-- الأزرار سيتم تحميلها من Firebase -->
+        </div>
+    </div>
+    
+    <!-- قسم الكتب والروايات العائم -->
+    <div class="floating-section" id="floatingBooks">
+        <button class="close-btn" id="closeFloatingBooks"><i class="fas fa-times"></i></button>
+        <div class="section-title">
+            <i class="fas fa-book-open"></i>
+            <h2>كتب وروايات</h2>
+        </div>
+        <div class="section-content">
+            <!-- المحتوى سيتم تحميله من Firebase -->
+            <p style="text-align:center;color:#777;grid-column:1/-1;">جاري تحميل المحتوى...</p>
+        </div>
+        <div class="buttons-container">
+            <!-- الأزرار سيتم تحميلها من Firebase -->
+        </div>
+    </div>
+    
+    <!-- قسم المقالات العائم -->
+    <div class="floating-section" id="floatingArticles">
+        <button class="close-btn" id="closeFloatingArticles"><i class="fas fa-times"></i></button>
+        <div class="section-title">
+            <i class="fas fa-pen-fancy"></i>
+            <h2>مقالات</h2>
+        </div>
+        <div class="section-content">
+            <!-- المحتوى سيتم تحميله من Firebase -->
+            <p style="text-align:center;color:#777;grid-column:1/-1;">جاري تحميل المحتوى...</p>
+        </div>
+        <div class="buttons-container">
+            <!-- الأزرار سيتم تحميلها من Firebase -->
+        </div>
+    </div>
+    
+    <!-- لوحة التحكم الإدارية -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-header">
+            <h3><i class="fas fa-cog"></i> لوحة التحكم</h3>
+            <button class="close-admin" id="closeAdmin"><i class="fas fa-times"></i></button>
+        </div>
+        
+        <div class="admin-tabs">
+            <div class="admin-tab-buttons">
+                <button class="admin-tab-btn active" data-tab="add-content">إضافة محتوى</button>
+                <button class="admin-tab-btn" data-tab="add-button">إضافة زر</button>
+                <button class="admin-tab-btn" data-tab="buttons-management">إدارة الأزرار</button>
+                <button class="admin-tab-btn" data-tab="edit-about">تعديل السيرة</button>
+                <button class="admin-tab-btn" data-tab="new-section">قسم جديد</button>
+                <button class="admin-tab-btn" data-tab="settings">الإعدادات</button>
+            </div>
+            
+            <!-- تبويب إضافة محتوى -->
+            <div class="admin-tab-content active" id="add-content">
+                <div class="admin-form-group">
+                    <label for="contentSection">اختر القسم:</label>
+                    <select id="contentSection" class="admin-select">
+                        <option value="about">من أنا</option>
+                        <option value="media">الصحافة والإعلام</option>
+                        <option value="research">بحوث علمية</option>
+                        <option value="videos">فيديوهات بحثية</option>
+                        <option value="books">كتب وروايات</option>
+                        <option value="articles">مقالات</option>
+                    </select>
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="contentTitle">عنوان المحتوى:</label>
+                    <input type="text" id="contentTitle" placeholder="أدخل العنوان هنا">
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="contentIcon">اختر أيقونة:</label>
+                    <select id="contentIcon" class="admin-select">
+                        <option value="fa-graduation-cap">شهادة أكاديمية</option>
+                        <option value="fa-briefcase">خبرة عملية</option>
+                        <option value="fa-trophy">جائزة</option>
+                        <option value="fa-tv">تلفزيون</option>
+                        <option value="fa-microphone-alt">مقابلة</option>
+                        <option value="fa-book">بحث</option>
+                        <option value="fa-chart-line">دراسة</option>
+                        <option value="fa-users">تعاون</option>
+                    </select>
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="contentText">نص المحتوى:</label>
+                    <textarea id="contentText" placeholder="أدخل النص هنا"></textarea>
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="contentLink">رابط (اختياري):</label>
+                    <input type="text" id="contentLink" placeholder="أدخل الرابط هنا">
+                </div>
+                
+                <button class="admin-btn" id="addContentBtn"><i class="fas fa-plus"></i> إضافة محتوى</button>
+            </div>
+            
+            <!-- تبويب إضافة زر -->
+            <div class="admin-tab-content" id="add-button">
+                <div class="admin-form-group">
+                    <label for="buttonSection">اختر القسم:</label>
+                    <select id="buttonSection" class="admin-select">
+                        <option value="about">من أنا</option>
+                        <option value="media">الصحافة والإعلام</option>
+                        <option value="research">بحوث علمية</option>
+                        <option value="videos">فيديوهات بحثية</option>
+                        <option value="books">كتب وروايات</option>
+                        <option value="articles">مقالات</option>
+                    </select>
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="buttonText">نص الزر:</label>
+                    <input type="text" id="buttonText" placeholder="أدخل نص الزر هنا">
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="buttonLink">رابط الزر:</label>
+                    <input type="text" id="buttonLink" placeholder="أدخل الرابط هنا">
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="buttonType">نوع الزر:</label>
+                    <select id="buttonType" class="admin-select">
+                        <option value="btn-primary">أساسي (أزرق)</option>
+                        <option value="btn-secondary">ثانوي (رمادي)</option>
+                        <option value="btn-success">نجاح (أخضر)</option>
+                        <option value="btn-danger">خطر (أحمر)</option>
+                        <option value="btn-warning">تحذير (أصفر)</option>
+                        <option value="btn-info">معلومات (أزرق فاتح)</option>
+                    </select>
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="buttonIcon">أيقونة الزر (اختياري):</label>
+                    <select id="buttonIcon" class="admin-select">
+                        <option value="">بدون أيقونة</option>
+                        <option value="fa-download">تحميل</option>
+                        <option value="fa-external-link-alt">رابط خارجي</option>
+                        <option value="fa-book">كتاب</option>
+                        <option value="fa-video">فيديو</option>
+                        <option value="fa-file-pdf">PDF</option>
+                        <option value="fa-link">رابط</option>
+                    </select>
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="buttonStyle">تصميم الزر:</label>
+                    <select id="buttonStyle" class="admin-select">
+                        <option value="default">تصميم افتراضي</option>
+                        <option value="glow-border">إضاءة حول الحواف</option>
+                        <option value="modern-design">تصميم عصري</option>
+                    </select>
+                </div>
+                
+                <button class="admin-btn" id="addButtonBtn"><i class="fas fa-plus"></i> إضافة زر</button>
+            </div>
+            
+            <!-- تبويب إدارة الأزرار -->
+            <div class="admin-tab-content" id="buttons-management">
+                <div class="admin-form-group">
+                    <label for="buttonsSection">اختر القسم:</label>
+                    <select id="buttonsSection" class="admin-select">
+                        <option value="about">من أنا</option>
+                        <option value="media">الصحافة والإعلام</option>
+                        <option value="research">بحوث علمية</option>
+                        <option value="videos">فيديوهات بحثية</option>
+                        <option value="books">كتب وروايات</option>
+                        <option value="articles">مقالات</option>
+                    </select>
+                </div>
+                
+                <div class="buttons-list" id="buttonsList">
+                    <!-- الأزرار سيتم تحميلها هنا -->
+                    <p style="text-align:center;color:#777;">اختر قسمًا لعرض الأزرار الخاصة به</p>
+                </div>
+            </div>
+            
+            <!-- تبويب تعديل السيرة الذاتية -->
+            <div class="admin-tab-content" id="edit-about">
+                <div class="admin-form-group">
+                    <label for="aboutTitle">عنوان السيرة الذاتية:</label>
+                    <input type="text" id="aboutTitle" placeholder="أدخل عنوان السيرة الذاتية">
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="aboutContent">محتوى السيرة الذاتية:</label>
+                    <textarea id="aboutContentText" placeholder="أدخل محتوى السيرة الذاتية (HTML مسموح)" rows="10"></textarea>
+                </div>
+                
+                <button class="admin-btn" id="saveAboutBtn"><i class="fas fa-save"></i> حفظ السيرة الذاتية</button>
+            </div>
+            
+            <!-- تبويب قسم جديد -->
+            <div class="admin-tab-content" id="new-section">
+                <div class="admin-form-group">
+                    <label for="newSectionName">اسم القسم:</label>
+                    <input type="text" id="newSectionName" placeholder="أدخل اسم القسم الجديد">
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="newSectionIcon">أيقونة القسم:</label>
+                    <select id="newSectionIcon" class="admin-select">
+                        <option value="fa-image">صور</option>
+                        <option value="fa-podcast">بودكاست</option>
+                        <option value="fa-chalkboard-teacher">محاضرات</option>
+                        <option value="fa-award">إنجازات</option>
+                        <option value="fa-calendar">أحداث</option>
+                        <option value="fa-globe">مواقع</option>
+                    </select>
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="newSectionDesc">وصف القسم:</label>
+                    <textarea id="newSectionDesc" placeholder="أدخل وصفًا مختصرًا للقسم"></textarea>
+                </div>
+                
+                <button class="admin-btn" id="addSectionBtn"><i class="fas fa-plus-circle"></i> إنشاء قسم جديد</button>
+            </div>
+            
+            <!-- تبويب الإعدادات -->
+            <div class="admin-tab-content" id="settings">
+                <div class="admin-form-group">
+                    <label for="adminPasswordChange">كلمة المرور الجديدة:</label>
+                    <input type="password" id="adminPasswordChange" placeholder="أدخل كلمة المرور الجديدة">
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="adminPasswordConfirm">تأكيد كلمة المرور:</label>
+                    <input type="password" id="adminPasswordConfirm" placeholder="أكد كلمة المرور الجديدة">
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="profileImageUrl">رابط صورة البروفايل:</label>
+                    <input type="text" id="profileImageUrl" placeholder="أدخل رابط الصورة الجديدة">
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="profileTitle">اللقب الوظيفي:</label>
+                    <input type="text" id="profileTitle" placeholder="أدخل اللقب الوظيفي">
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="siteNameInput">اسم الموقع:</label>
+                    <input type="text" id="siteNameInput" placeholder="أدخل اسم الموقع">
+                </div>
+                
+                <div class="admin-form-group">
+                    <label>اختيار الألوان:</label>
+                    <div class="color-picker" id="colorPicker">
+                        <div class="color-option" style="background: #3498db;" data-start="#3498db" data-end="#2c3e50"></div>
+                        <div class="color-option" style="background: #e74c3c;" data-start="#e74c3c" data-end="#c0392b"></div>
+                        <div class="color-option" style="background: #2ecc71;" data-start="#2ecc71" data-end="#27ae60"></div>
+                        <div class="color-option" style="background: #9b59b6;" data-start="#9b59b6" data-end="#8e44ad"></div>
+                        <div class="color-option" style="background: #f39c12;" data-start="#f39c12" data-end="#e67e22"></div>
+                        <div class="color-option" style="background: #1abc9c;" data-start="#1abc9c" data-end="#16a085"></div>
+                    </div>
+                    <div class="gradient-preview" id="gradientPreview"></div>
+                </div>
+                
+                <div class="admin-form-group">
+                    <label>اختيار تأثيرات الحركة:</label>
+                    <div class="animation-selector" id="animationSelector">
+                        <div class="animation-option" data-animation="fadeIn">fadeIn</div>
+                        <div class="animation-option" data-animation="bounceIn">bounceIn</div>
+                        <div class="animation-option" data-animation="zoomIn">zoomIn</div>
+                        <div class="animation-option" data-animation="slideInUp">slideInUp</div>
+                        <div class="animation-option" data-animation="flipInX">flipInX</div>
+                        <div class="animation-option" data-animation="rotateIn">rotateIn</div>
+                    </div>
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="glowEffectToggle">تفعيل إضاءة الخلفية:</label>
+                    <select id="glowEffectToggle" class="admin-select">
+                        <option value="on">تفعيل</option>
+                        <option value="off">إيقاف</option>
+                    </select>
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="glowBordersToggle">تفعيل إضاءة الحواف:</label>
+                    <select id="glowBordersToggle" class="admin-select">
+                        <option value="on">تفعيل</option>
+                        <option value="off">إيقاف</option>
+                    </select>
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="modernDesignToggle">تفعيل التصميم العصري:</label>
+                    <select id="modernDesignToggle" class="admin-select">
+                        <option value="on">تفعيل</option>
+                        <option value="off">إيقاف</option>
+                    </select>
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="maintenanceToggle">وضع الصيانة:</label>
+                    <select id="maintenanceToggle" class="admin-select">
+                        <option value="off">عادي</option>
+                        <option value="on">وضع الصيانة</option>
+                    </select>
+                </div>
+                
+                <button class="admin-btn" id="saveSettingsBtn"><i class="fas fa-save"></i> حفظ الإعدادات</button>
+                <button class="admin-btn btn-danger" id="resetSettingsBtn"><i class="fas fa-redo"></i> إعادة ضبط الإعدادات</button>
+                <button class="admin-btn btn-warning" id="disableEffectsBtn"><i class="fas fa-power-off"></i> إيقاف جميع التأثيرات</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نافذة كلمة المرور -->
+    <div class="password-modal" id="passwordModal">
+        <div class="password-box">
+            <h3><i class="fas fa-lock"></i> أدخل كلمة المرور</h3>
+            <input type="password" id="adminPassword" placeholder="كلمة المرور">
+            <button id="submitPassword">دخول</button>
+            <p id="passwordError">كلمة المرور غير صحيحة!</p>
+        </div>
+    </div>
+
+    <!-- Firebase SDK v12 -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+        import { getDatabase, ref, push, set, onValue, remove, update } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";
+        
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBMJe0CVmxCrFthFmJEs5W_p1x3AFpFmHQ",
+            authDomain: "moaz-a8190.firebaseapp.com",
+            databaseURL: "https://moaz-a8190-default-rtdb.firebaseio.com",
+            projectId: "moaz-a8190",
+            storageBucket: "moaz-a8190.appspot.com",
+            messagingSenderId: "839870478124",
+            appId: "1:839870478124:web:e703f65119d40332179e89",
+            measurementId: "G-L8LRHDW3JC"
+        };
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        
+        // العناصر الرئيسية
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const adminTrigger = document.getElementById('adminTrigger');
+        const adminPanel = document.getElementById('adminPanel');
+        const closeAdmin = document.getElementById('closeAdmin');
+        const passwordModal = document.getElementById('passwordModal');
+        const submitPassword = document.getElementById('submitPassword');
+        const adminPassword = document.getElementById('adminPassword');
+        const passwordError = document.getElementById('passwordError');
+        const overlay = document.getElementById('overlay');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        const bgAnimation = document.getElementById('bgAnimation');
+        const alertMessage = document.getElementById('alertMessage');
+        const alertText = document.getElementById('alertText');
+        const alertClose = document.getElementById('alertClose');
+        const floatingSections = {
+            about: document.getElementById('floatingAbout'),
+            media: document.getElementById('floatingMedia'),
+            research: document.getElementById('floatingResearch'),
+            videos: document.getElementById('floatingVideos'),
+            books: document.getElementById('floatingBooks'),
+            articles: document.getElementById('floatingArticles')
+        };
+        
+        // تأثير النقر
+        document.addEventListener('click', function(e) {
+            const effect = document.createElement('div');
+            effect.className = 'click-effect';
+            effect.style.left = e.clientX + 'px';
+            effect.style.top = e.clientY + 'px';
+            document.body.appendChild(effect);
+            
+            setTimeout(() => {
+                effect.remove();
+            }, 500);
+        });
+        
+        // تفعيل الوضع المظلم
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
+            darkModeToggle.innerHTML = body.classList.contains('dark-mode') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        });
+        
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        
+        // إغلاق رسالة التنبيه
+        alertClose.addEventListener('click', () => {
+            alertMessage.classList.remove('show');
+        });
+        
+        // عرض رسالة تنبيه
+        function showAlert(message, type = 'success') {
+            alertText.textContent = message;
+            alertMessage.className = `alert-message alert-${type} show`;
+            alertMessage.querySelector('.alert-icon').innerHTML = type === 'success' ? 
+                '<i class="fas fa-check-circle"></i>' : 
+                type === 'error' ? '<i class="fas fa-exclamation-circle"></i>' : 
+                '<i class="fas fa-info-circle"></i>';
+            
+            setTimeout(() => {
+                alertMessage.classList.remove('show');
+            }, 5000);
+        }
+        
+        // فتح لوحة التحكم بالضغط على الصورة 4 مرات
+        let clickCount = 0;
+        let lastClickTime = 0;
+        
+        adminTrigger.addEventListener('click', () => {
+            const currentTime = new Date().getTime();
+            
+            if (currentTime - lastClickTime > 1000) {
+                clickCount = 0;
+            }
+            
+            clickCount++;
+            lastClickTime = currentTime;
+            
+            if (clickCount === 4) {
+                clickCount = 0;
+                passwordModal.classList.add('active');
+                adminPassword.focus();
+            }
+        });
+        
+        // تسجيل الدخول
+        submitPassword.addEventListener('click', () => {
+            const password = adminPassword.value;
+            
+            // هنا يجب استبدالها بمصادقة Firebase
+            if (password === "admin123") {
+                passwordModal.classList.remove('active');
+                adminPanel.classList.add('active');
+                passwordError.style.display = 'none';
+                showLoading();
+                loadAllContent().then(() => {
+                    hideLoading();
+                    showAlert('تم تسجيل الدخول بنجاح', 'success');
+                });
+                adminPassword.value = '';
+            } else {
+                passwordError.style.display = 'block';
+                adminPassword.value = '';
+                adminPassword.focus();
+                showAlert('كلمة المرور غير صحيحة', 'error');
+            }
+        });
+        
+        // إغلاق لوحة التحكم
+        closeAdmin.addEventListener('click', () => {
+            adminPanel.classList.remove('active');
+            showAlert('تم إغلاق لوحة التحكم', 'success');
+        });
+        
+        // إغلاق الأقسام العائمة
+        Object.keys(floatingSections).forEach(sectionId => {
+            const closeBtn = document.getElementById(`closeFloating${sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}`);
+            if (closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                    floatingSections[sectionId].classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+        
+        // إغلاق القسم العائم عند النقر على الـ overlay
+        overlay.addEventListener('click', () => {
+            Object.values(floatingSections).forEach(section => {
+                section.classList.remove('active');
+            });
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // التنقل بين الأقسام
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = link.getAttribute('data-section');
+                
+                if (floatingSections[sectionId]) {
+                    floatingSections[sectionId].classList.add('active');
+                    overlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    showLoading();
+                    loadContentForSection(sectionId);
+                    loadButtonsForSection(sectionId).then(() => {
+                        hideLoading();
+                    });
+                }
+            });
+        });
+        
+        // تبديل تبويبات لوحة التحكم
+        document.querySelectorAll('.admin-tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                
+                document.querySelectorAll('.admin-tab-btn').forEach(tabBtn => {
+                    tabBtn.classList.remove('active');
+                });
+                
+                document.querySelectorAll('.admin-tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+                
+                // إذا كان التبويب هو إدارة الأزرار، قم بتحميل الأزرار
+                if (tabId === 'buttons-management') {
+                    loadButtonsForManagement();
+                }
+                
+                // إذا كان التبويب هو تعديل السيرة الذاتية، قم بتحميل المحتوى
+                if (tabId === 'edit-about') {
+                    loadAboutContentForEdit();
+                }
+            });
+        });
+        
+        // تحميل محتوى السيرة الذاتية للتعديل
+        function loadAboutContentForEdit() {
+            const aboutContent = document.getElementById('aboutContent');
+            document.getElementById('aboutContentText').value = aboutContent.innerHTML;
+        }
+        
+        // حفظ محتوى السيرة الذاتية
+        document.getElementById('saveAboutBtn').addEventListener('click', () => {
+            const aboutContent = document.getElementById('aboutContentText').value;
+            const aboutTitle = document.getElementById('aboutTitle').value;
+            
+            if (!aboutContent) {
+                showAlert('الرجاء إدخال محتوى السيرة الذاتية', 'error');
+                return;
+            }
+            
+            showLoading();
+            
+            // تحديث محتوى السيرة الذاتية مباشرة
+            document.getElementById('aboutContent').innerHTML = aboutContent;
+            
+            // حفظ في Firebase إذا كان هناك اتصال
+            const updates = {};
+            if (aboutTitle) updates['about/title'] = aboutTitle;
+            updates['about/content'] = aboutContent;
+            
+            update(ref(database), updates).then(() => {
+                showAlert('تم حفظ السيرة الذاتية بنجاح!', 'success');
+                hideLoading();
+            }).catch(error => {
+                console.error('Error saving about content:', error);
+                showAlert('تم حفظ السيرة الذاتية محليًا (لا يوجد اتصال)', 'warning');
+                hideLoading();
+            });
+        });
+        
+        // Color Picker
+        const colorOptions = document.querySelectorAll('.color-option');
+        const gradientPreview = document.getElementById('gradientPreview');
+        
+        colorOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove selected class from all options
+                colorOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to clicked option
+                option.classList.add('selected');
+                
+                // Update gradient preview
+                const startColor = option.getAttribute('data-start');
+                const endColor = option.getAttribute('data-end');
+                gradientPreview.style.background = `linear-gradient(45deg, ${startColor}, ${endColor})`;
+                
+                // Update CSS variables
+                document.documentElement.style.setProperty('--gradient-start', startColor);
+                document.documentElement.style.setProperty('--gradient-end', endColor);
+                document.documentElement.style.setProperty('--button-bg', `linear-gradient(45deg, ${startColor}, ${endColor})`);
+                
+                // Update primary and secondary colors
+                document.documentElement.style.setProperty('--primary-color', endColor);
+                document.documentElement.style.setProperty('--secondary-color', startColor);
+                
+                // Update all buttons
+                document.querySelectorAll('.btn-primary').forEach(btn => {
+                    btn.style.background = `linear-gradient(45deg, ${startColor}, ${endColor})`;
+                });
+            });
+        });
+        
+        // Animation Selector
+        const animationOptions = document.querySelectorAll('.animation-option');
+        
+        animationOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove selected class from all options
+                animationOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to clicked option
+                option.classList.add('selected');
+                
+                // Update animation type
+                const animationType = option.getAttribute('data-animation');
+                document.documentElement.style.setProperty('--animation-type', animationType);
+                
+                // Apply animation to cards
+                document.querySelectorAll('.card').forEach(card => {
+                    card.classList.add('animate__animated', `animate__${animationType}`);
+                });
+            });
+        });
+        
+        // إضافة محتوى جديد
+        document.getElementById('addContentBtn').addEventListener('click', () => {
+            const section = document.getElementById('contentSection').value;
+            const title = document.getElementById('contentTitle').value;
+            const icon = document.getElementById('contentIcon').value;
+            const text = document.getElementById('contentText').value;
+            const link = document.getElementById('contentLink').value;
+            
+            if (!title || !text) {
+                showAlert('الرجاء إدخال العنوان والنص', 'error');
+                return;
+            }
+            
+            showLoading();
+            const contentRef = ref(database, `content/${section}`);
+            const newContentRef = push(contentRef);
+            
+            set(newContentRef, {
+                title, icon, text, link,
+                timestamp: new Date().toISOString()
+            }).then(() => {
+                showAlert('تمت إضافة المحتوى بنجاح!', 'success');
+                document.getElementById('contentTitle').value = '';
+                document.getElementById('contentText').value = '';
+                document.getElementById('contentLink').value = '';
+                loadContentForSection(section);
+                hideLoading();
+            }).catch(error => {
+                console.error('Error adding content:', error);
+                showAlert('حدث خطأ أثناء إضافة المحتوى', 'error');
+                hideLoading();
+            });
+        });
+        
+        // إضافة زر جديد
+        document.getElementById('addButtonBtn').addEventListener('click', () => {
+            const section = document.getElementById('buttonSection').value;
+            const text = document.getElementById('buttonText').value;
+            const link = document.getElementById('buttonLink').value;
+            const type = document.getElementById('buttonType').value;
+            const icon = document.getElementById('buttonIcon').value;
+            const style = document.getElementById('buttonStyle').value;
+            
+            if (!text || !link) {
+                showAlert('الرجاء إدخال نص الزر والرابط', 'error');
+                return;
+            }
+            
+            showLoading();
+            const buttonsRef = ref(database, `buttons/${section}`);
+            const newButtonRef = push(buttonsRef);
+            
+            set(newButtonRef, {
+                text, link, type, icon, style,
+                timestamp: new Date().toISOString()
+            }).then(() => {
+                showAlert('تمت إضافة الزر بنجاح!', 'success');
+                document.getElementById('buttonText').value = '';
+                document.getElementById('buttonLink').value = '';
+                loadButtonsForSection(section);
+                hideLoading();
+            }).catch(error => {
+                console.error('Error adding button:', error);
+                showAlert('حدث خطأ أثناء إضافة الزر', 'error');
+                hideLoading();
+            });
+        });
+        
+        // إضافة قسم جديد
+        document.getElementById('addSectionBtn').addEventListener('click', () => {
+            const name = document.getElementById('newSectionName').value;
+            const icon = document.getElementById('newSectionIcon').value;
+            const desc = document.getElementById('newSectionDesc').value;
+            
+            if (!name) {
+                showAlert('الرجاء إدخال اسم القسم', 'error');
+                return;
+            }
+            
+            const sectionId = name.replace(/\s+/g, '-').toLowerCase();
+            
+            showLoading();
+            const sectionsRef = ref(database, `sections/${sectionId}`);
+            
+            set(sectionsRef, {
+                name, icon, desc,
+                timestamp: new Date().toISOString()
+            }).then(() => {
+                showAlert('تمت إضافة القسم بنجاح!', 'success');
+                document.getElementById('newSectionName').value = '';
+                document.getElementById('newSectionDesc').value = '';
+                addNewSectionToNav(sectionId, name, icon);
+                hideLoading();
+            }).catch(error => {
+                console.error('Error adding section:', error);
+                showAlert('حدث خطأ أثناء إضافة القسم', 'error');
+                hideLoading();
+            });
+        });
+        
+        // حفظ الإعدادات
+        document.getElementById('saveSettingsBtn').addEventListener('click', () => {
+            const newPassword = document.getElementById('adminPasswordChange').value;
+            const confirmPassword = document.getElementById('adminPasswordConfirm').value;
+            const profileImage = document.getElementById('profileImageUrl').value;
+            const profileTitle = document.getElementById('profileTitle').value;
+            const siteName = document.getElementById('siteNameInput').value;
+            const glowEffect = document.getElementById('glowEffectToggle').value;
+            const glowBorders = document.getElementById('glowBordersToggle').value;
+            const modernDesign = document.getElementById('modernDesignToggle').value;
+            const maintenanceMode = document.getElementById('maintenanceToggle').value;
+            
+            if (newPassword && newPassword !== confirmPassword) {
+                showAlert('كلمة المرور غير متطابقة!', 'error');
+                return;
+            }
+            
+            showLoading();
+            const updates = {};
+            
+            if (profileImage) {
+                document.querySelector('.profile-image').src = profileImage;
+                updates['settings/profileImage'] = profileImage;
+            }
+            
+            if (profileTitle) {
+                document.querySelector('.profile-info .title').textContent = profileTitle;
+                updates['settings/profileTitle'] = profileTitle;
+            }
+            
+            if (siteName) {
+                document.getElementById('siteName').textContent = siteName;
+                updates['settings/siteName'] = siteName;
+            }
+            
+            // Get selected color
+            const selectedColor = document.querySelector('.color-option.selected');
+            if (selectedColor) {
+                const startColor = selectedColor.getAttribute('data-start');
+                const endColor = selectedColor.getAttribute('data-end');
+                updates['settings/gradientStart'] = startColor;
+                updates['settings/gradientEnd'] = endColor;
+            }
+            
+            // Get selected animation
+            const selectedAnimation = document.querySelector('.animation-option.selected');
+            if (selectedAnimation) {
+                const animationType = selectedAnimation.getAttribute('data-animation');
+                updates['settings/animationType'] = animationType;
+            }
+            
+            updates['settings/glowEffect'] = glowEffect === 'on';
+            updates['settings/glowBorders'] = glowBorders === 'on';
+            updates['settings/modernDesign'] = modernDesign === 'on';
+            updates['settings/maintenanceMode'] = maintenanceMode === 'on';
+            
+            // تطبيق التغييرات على الفور
+            if (glowEffect === 'on') {
+                bgAnimation.classList.add('active');
+            } else {
+                bgAnimation.classList.remove('active');
+            }
+            
+            if (glowBorders === 'on') {
+                document.querySelectorAll('.floating-section, .card, .custom-btn').forEach(el => {
+                    el.classList.add('glow-border');
+                });
+            } else {
+                document.querySelectorAll('.floating-section, .card, .custom-btn').forEach(el => {
+                    el.classList.remove('glow-border');
+                });
+            }
+            
+            if (modernDesign === 'on') {
+                document.querySelectorAll('.floating-section, .card, .custom-btn').forEach(el => {
+                    el.classList.add('modern-design');
+                });
+            } else {
+                document.querySelectorAll('.floating-section, .card, .custom-btn').forEach(el => {
+                    el.classList.remove('modern-design');
+                });
+            }
+            
+            // وضع الصيانة
+            if (maintenanceMode === 'on') {
+                body.classList.add('maintenance-mode');
+            } else {
+                body.classList.remove('maintenance-mode');
+            }
+            
+            // تحديث قاعدة البيانات
+            update(ref(database), updates).then(() => {
+                showAlert('تم حفظ الإعدادات بنجاح!', 'success');
+                if (newPassword) {
+                    document.getElementById('adminPasswordChange').value = '';
+                    document.getElementById('adminPasswordConfirm').value = '';
+                }
+                hideLoading();
+            }).catch(error => {
+                console.error('Error saving settings:', error);
+                showAlert('حدث خطأ أثناء حفظ الإعدادات', 'error');
+                hideLoading();
+            });
+        });
+        
+        // إعادة ضبط الإعدادات
+        document.getElementById('resetSettingsBtn').addEventListener('click', () => {
+            if (confirm('هل أنت متأكد من إعادة ضبط جميع الإعدادات إلى القيم الافتراضية؟')) {
+                showLoading();
+                
+                // Reset to default settings
+                const defaultSettings = {
+                    'settings/profileImage': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAd_KwAlFC_QiVp3yyz3FjsTcvONhQE3kP32b5xwkY8S4kZro0k0d4Uk_tM_qSZixBR1se7wnOcSSShCbmvgyB3YVIN5h5evF8tl1qI_K-UJYpPSzFHIiDaqwaH5V0QmiIo2EnZbLU1nlfYvEO6lJsMq71aXIjUEnHhmCHLoTQHrJwr5eFziRKPxSJOhR_/s678/IMG-20250711-WA0212.jpg',
+                    'settings/profileTitle': 'أستاذ علم المناعة بكلية العلوم – جامعة طنطا – مصر',
+                    'settings/siteName': 'البروفيسور محمد ليب سالم',
+                    'settings/gradientStart': '#3498db',
+                    'settings/gradientEnd': '#2c3e50',
+                    'settings/animationType': 'fadeIn',
+                    'settings/glowEffect': true,
+                    'settings/glowBorders': true,
+                    'settings/modernDesign': false,
+                    'settings/maintenanceMode': false
+                };
+                
+                update(ref(database), defaultSettings).then(() => {
+                    // Reload the page to apply all changes
+                    window.location.reload();
+                }).catch(error => {
+                    console.error('Error resetting settings:', error);
+                    showAlert('حدث خطأ أثناء إعادة ضبط الإعدادات', 'error');
+                    hideLoading();
+                });
+            }
+        });
+        
+        // إيقاف جميع التأثيرات
+        document.getElementById('disableEffectsBtn').addEventListener('click', () => {
+            if (confirm('هل أنت متأكد من إيقاف جميع التأثيرات والأنيميشنات؟')) {
+                showLoading();
+                
+                // Disable all effects
+                const updates = {
+                    'settings/glowEffect': false,
+                    'settings/glowBorders': false,
+                    'settings/modernDesign': false,
+                    'settings/animationType': 'none'
+                };
+                
+                update(ref(database), updates).then(() => {
+                    // Apply changes immediately
+                    bgAnimation.classList.remove('active');
+                    document.querySelectorAll('.floating-section, .card, .custom-btn').forEach(el => {
+                        el.classList.remove('glow-border', 'modern-design', 'animate__animated');
+                    });
+                    
+                    showAlert('تم إيقاف جميع التأثيرات بنجاح!', 'success');
+                    hideLoading();
+                }).catch(error => {
+                    console.error('Error disabling effects:', error);
+                    showAlert('حدث خطأ أثناء إيقاف التأثيرات', 'error');
+                    hideLoading();
+                });
+            }
+        });
+        
+        // تحميل الأزرار للإدارة
+        function loadButtonsForManagement() {
+            const section = document.getElementById('buttonsSection').value;
+            const buttonsList = document.getElementById('buttonsList');
+            
+            buttonsList.innerHTML = '<p style="text-align:center;color:#777;">جاري تحميل الأزرار...</p>';
+            
+            const buttonsRef = ref(database, `buttons/${section}`);
+            
+            onValue(buttonsRef, (snapshot) => {
+                buttonsList.innerHTML = '';
+                
+                if (!snapshot.exists()) {
+                    buttonsList.innerHTML = '<p style="text-align:center;color:#777;">لا توجد أزرار في هذا القسم</p>';
+                    return;
+                }
+                
+                snapshot.forEach((childSnapshot) => {
+                    const button = childSnapshot.val();
+                    const buttonId = childSnapshot.key;
+                    
+                    const buttonItem = document.createElement('div');
+                    buttonItem.className = 'admin-button-item';
+                    buttonItem.style.display = 'flex';
+                    buttonItem.style.justifyContent = 'space-between';
+                    buttonItem.style.alignItems = 'center';
+                    buttonItem.style.padding = '10px';
+                    buttonItem.style.marginBottom = '10px';
+                    buttonItem.style.backgroundColor = 'var(--card-bg)';
+                    buttonItem.style.borderRadius = '8px';
+                    
+                    buttonItem.innerHTML = `
+                        <div>
+                            <strong>${button.text}</strong>
+                            <br>
+                            <small>${button.link}</small>
+                        </div>
+                        <div>
+                            <button class="delete-button" data-id="${buttonId}" data-section="${section}" style="background: var(--accent-color); color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">حذف</button>
+                        </div>
+                    `;
+                    
+                    buttonsList.appendChild(buttonItem);
+                });
+                
+                // إضافة مستمعات الأحداث لأزرار الحذف
+                document.querySelectorAll('.delete-button').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const buttonId = e.target.getAttribute('data-id');
+                        const section = e.target.getAttribute('data-section');
+                        
+                        if (confirm('هل أنت متأكد من حذف هذا الزر؟')) {
+                            showLoading();
+                            const buttonRef = ref(database, `buttons/${section}/${buttonId}`);
+                            remove(buttonRef).then(() => {
+                                showAlert('تم حذف الزر بنجاح', 'success');
+                                loadButtonsForManagement();
+                                loadButtonsForSection(section);
+                                hideLoading();
+                            }).catch(error => {
+                                console.error('Error deleting button:', error);
+                                showAlert('حدث خطأ أثناء حذف الزر', 'error');
+                                hideLoading();
+                            });
+                        }
+                    });
+                });
+            });
+        }
+        
+        // تغيير القسم في إدارة الأزرار
+        document.getElementById('buttonsSection').addEventListener('change', loadButtonsForManagement);
+        
+        // إضافة قسم جديد إلى القائمة
+        function addNewSectionToNav(sectionId, name, icon) {
+            const navLinks = document.querySelector('.nav-links');
+            const newItem = document.createElement('li');
+            newItem.innerHTML = `
+                <a href="#" data-section="${sectionId}">
+                    <i class="fas ${icon}"></i>
+                    <span>${name}</span>
+                </a>
+            `;
+            navLinks.appendChild(newItem);
+            
+            // إنشاء قسم عائم جديد
+            const newFloatingSection = document.createElement('div');
+            newFloatingSection.className = 'floating-section';
+            newFloatingSection.id = `floating${sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}`;
+            newFloatingSection.innerHTML = `
+                <button class="close-btn" id="closeFloating${sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="section-title">
+                    <i class="fas ${icon}"></i>
+                    <h2>${name}</h2>
+                </div>
+                <div class="section-content">
+                    <p style="text-align:center;color:#777;grid-column:1/-1;">جاري تحميل المحتوى...</p>
+                </div>
+                <div class="buttons-container">
+                    <!-- الأزرار سيتم تحميلها من Firebase -->
+                </div>
+            `;
+            document.body.appendChild(newFloatingSection);
+            
+            // تطبيق الإعدادات على القسم الجديد
+            applySettingsToNewSection(newFloatingSection);
+            
+            // إضافة مستمع حدث لإغلاق القسم الجديد
+            document.getElementById(`closeFloating${sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}`).addEventListener('click', () => {
+                newFloatingSection.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // إضافة مستمع حدث للنقر على القسم الجديد
+            newItem.querySelector('a').addEventListener('click', (e) => {
+                e.preventDefault();
+                newFloatingSection.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                showLoading();
+                loadContentForSection(sectionId);
+                loadButtonsForSection(sectionId).then(() => {
+                    hideLoading();
+                });
+            });
+            
+            // تحديث كائن floatingSections
+            floatingSections[sectionId] = newFloatingSection;
+        }
+        
+        // تطبيق الإعدادات على قسم جديد
+        function applySettingsToNewSection(section) {
+            const settingsRef = ref(database, 'settings');
+            
+            onValue(settingsRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    const settings = snapshot.val();
+                    
+                    if (settings.glowBorders) {
+                        section.classList.add('glow-border');
+                    }
+                    
+                    if (settings.modernDesign) {
+                        section.classList.add('modern-design');
+                    }
+                }
+            });
+        }
+        
+        // تحميل المحتوى لكل قسم
+        function loadContentForSection(sectionId) {
+            const section = floatingSections[sectionId];
+            if (!section) return;
+            
+            const contentContainer = section.querySelector('.section-content');
+            
+            // إذا كان القسم هو "من أنا"، نستخدم المحتوى المحلي إذا لم يكن هناك اتصال
+            if (sectionId === 'about') {
+                const aboutRef = ref(database, 'about/content');
+                
+                onValue(aboutRef, (snapshot) => {
+                    if (snapshot.exists()) {
+                        contentContainer.innerHTML = snapshot.val();
+                    } else {
+                        // استخدام المحتوى المحلي الافتراضي
+                        contentContainer.innerHTML = document.getElementById('aboutContent').innerHTML;
+                    }
+                    
+                    // تطبيق الإعدادات على البطاقات
+                    applySettingsToCards(contentContainer);
+                }, {
+                    onlyOnce: true
+                });
+                
+                return;
+            }
+            
+            contentContainer.innerHTML = '<p style="text-align:center;color:#777;grid-column:1/-1;">جاري تحميل المحتوى...</p>';
+            
+            const sectionRef = ref(database, `content/${sectionId}`);
+            
+            onValue(sectionRef, (snapshot) => {
+                contentContainer.innerHTML = '';
+                
+                if (!snapshot.exists()) {
+                    contentContainer.innerHTML = '<p style="text-align:center;color:#777;grid-column:1/-1;">لا يوجد محتوى في هذا القسم بعد</p>';
+                    return;
+                }
+                
+                snapshot.forEach((childSnapshot) => {
+                    const content = childSnapshot.val();
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <h3 class="card-title"><i class="fas ${content.icon}"></i> ${content.title}</h3>
+                        <p class="card-content">${content.text}</p>
+                        ${content.link ? `<a href="${content.link}" class="card-link" target="_blank">المزيد <i class="fas fa-external-link-alt"></i></a>` : ''}
+                    `;
+                    contentContainer.appendChild(card);
+                    
+                    // تطبيق الإعدادات على البطاقة الجديدة
+                    applySettingsToCard(card);
+                });
+            });
+        }
+        
+        // تطبيق الإعدادات على البطاقات
+        function applySettingsToCard(card) {
+            const settingsRef = ref(database, 'settings');
+            
+            onValue(settingsRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    const settings = snapshot.val();
+                    
+                    if (settings.glowBorders) {
+                        card.classList.add('glow-border');
+                    }
+                    
+                    if (settings.modernDesign) {
+                        card.classList.add('modern-design');
+                    }
+                    
+                    if (settings.animationType && settings.animationType !== 'none') {
+                        card.classList.add('animate__animated', `animate__${settings.animationType}`);
+                    }
+                }
+            });
+        }
+        
+        // تطبيق الإعدادات على مجموعة من البطاقات
+        function applySettingsToCards(container) {
+            const cards = container.querySelectorAll('.card');
+            cards.forEach(card => {
+                applySettingsToCard(card);
+            });
+        }
+        
+        // تحميل الأزرار لكل قسم
+        function loadButtonsForSection(sectionId) {
+            return new Promise((resolve) => {
+                const buttonsRef = ref(database, `buttons/${sectionId}`);
+                
+                onValue(buttonsRef, (snapshot) => {
+                    const section = floatingSections[sectionId];
+                    if (!section) return resolve();
+                    
+                    const buttonsContainer = section.querySelector('.buttons-container');
+                    buttonsContainer.innerHTML = '';
+                    
+                    if (!snapshot.exists()) return resolve();
+                    
+                    snapshot.forEach((childSnapshot) => {
+                        const button = childSnapshot.val();
+                        const btn = document.createElement('a');
+                        btn.className = `custom-btn ${button.type}`;
+                        if (button.style === 'glow-border') {
+                            btn.classList.add('glow-border');
+                        } else if (button.style === 'modern-design') {
+                            btn.classList.add('modern-design');
+                        }
+                        btn.href = button.link;
+                        btn.target = '_blank';
+                        btn.innerHTML = button.text + (button.icon ? ` <i class="fas ${button.icon}"></i>` : '');
+                        buttonsContainer.appendChild(btn);
+                    });
+                    
+                    resolve();
+                });
+            });
+        }
+        
+        // تحميل جميع المحتويات والأزرار
+        function loadAllContent() {
+            return new Promise((resolve) => {
+                const sections = ['about', 'media', 'research', 'videos', 'books', 'articles'];
+                
+                // تحميل الأقسام الإضافية من Firebase
+                const sectionsRef = ref(database, 'sections');
+                
+                onValue(sectionsRef, (snapshot) => {
+                    if (snapshot.exists()) {
+                        snapshot.forEach((childSnapshot) => {
+                            const section = childSnapshot.val();
+                            if (!floatingSections[childSnapshot.key]) {
+                                addNewSectionToNav(childSnapshot.key, section.name, section.icon);
+                            }
+                        });
+                    }
+                    
+                    // تحميل المحتوى والأزرار للأقسام الرئيسية
+                    sections.forEach(sectionId => {
+                        loadContentForSection(sectionId);
+                        loadButtonsForSection(sectionId);
+                    });
+                    
+                    // تحميل إعدادات الموقع
+                    loadSiteSettings().then(resolve);
+                });
+            });
+        }
+        
+        // تحميل إعدادات الموقع
+        function loadSiteSettings() {
+            return new Promise((resolve) => {
+                const settingsRef = ref(database, 'settings');
+                
+                onValue(settingsRef, (snapshot) => {
+                    if (snapshot.exists()) {
+                        const settings = snapshot.val();
+                        
+                        if (settings.profileImage) {
+                            document.querySelector('.profile-image').src = settings.profileImage;
+                        }
+                        
+                        if (settings.profileTitle) {
+                            document.querySelector('.profile-info .title').textContent = settings.profileTitle;
+                        }
+                        
+                        if (settings.siteName) {
+                            document.getElementById('siteName').textContent = settings.siteName;
+                            document.getElementById('siteNameInput').value = settings.siteName;
+                        }
+                        
+                        // Gradient colors
+                        if (settings.gradientStart && settings.gradientEnd) {
+                            document.documentElement.style.setProperty('--gradient-start', settings.gradientStart);
+                            document.documentElement.style.setProperty('--gradient-end', settings.gradientEnd);
+                            document.documentElement.style.setProperty('--button-bg', `linear-gradient(45deg, ${settings.gradientStart}, ${settings.gradientEnd})`);
+                            
+                            // Update color picker
+                            const colorOptions = document.querySelectorAll('.color-option');
+                            colorOptions.forEach(option => {
+                                if (option.getAttribute('data-start') === settings.gradientStart && 
+                                    option.getAttribute('data-end') === settings.gradientEnd) {
+                                    option.classList.add('selected');
+                                } else {
+                                    option.classList.remove('selected');
+                                }
+                            });
+                            
+                            // Update gradient preview
+                            document.getElementById('gradientPreview').style.background = 
+                                `linear-gradient(45deg, ${settings.gradientStart}, ${settings.gradientEnd})`;
+                        }
+                        
+                        // Animation type
+                        if (settings.animationType) {
+                            document.documentElement.style.setProperty('--animation-type', settings.animationType);
+                            
+                            // Update animation selector
+                            const animationOptions = document.querySelectorAll('.animation-option');
+                            animationOptions.forEach(option => {
+                                if (option.getAttribute('data-animation') === settings.animationType) {
+                                    option.classList.add('selected');
+                                } else {
+                                    option.classList.remove('selected');
+                                }
+                            });
+                        }
+                        
+                        if (settings.glowEffect) {
+                            bgAnimation.classList.add('active');
+                            document.getElementById('glowEffectToggle').value = 'on';
+                        } else {
+                            bgAnimation.classList.remove('active');
+                            document.getElementById('glowEffectToggle').value = 'off';
+                        }
+                        
+                        if (settings.glowBorders) {
+                            document.querySelectorAll('.floating-section, .card, .custom-btn').forEach(el => {
+                                el.classList.add('glow-border');
+                            });
+                            document.getElementById('glowBordersToggle').value = 'on';
+                        } else {
+                            document.querySelectorAll('.floating-section, .card, .custom-btn').forEach(el => {
+                                el.classList.remove('glow-border');
+                            });
+                            document.getElementById('glowBordersToggle').value = 'off';
+                        }
+                        
+                        if (settings.modernDesign) {
+                            document.querySelectorAll('.floating-section, .card, .custom-btn').forEach(el => {
+                                el.classList.add('modern-design');
+                            });
+                            document.getElementById('modernDesignToggle').value = 'on';
+                        } else {
+                            document.querySelectorAll('.floating-section, .card, .custom-btn').forEach(el => {
+                                el.classList.remove('modern-design');
+                            });
+                            document.getElementById('modernDesignToggle').value = 'off';
+                        }
+                        
+                        if (settings.maintenanceMode) {
+                            body.classList.add('maintenance-mode');
+                            document.getElementById('maintenanceToggle').value = 'on';
+                        } else {
+                            body.classList.remove('maintenance-mode');
+                            document.getElementById('maintenanceToggle').value = 'off';
+                        }
+                    }
+                    
+                    resolve();
+                });
+            });
+        }
+        
+        // تأثير الخلفية المضيئة
+        function initBackgroundAnimation() {
+            const canvas = document.getElementById('bgAnimation');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const particles = [];
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 3 + 1,
+                    speedX: Math.random() * 1 - 0.5,
+                    speedY: Math.random() * 1 - 0.5
+                });
+            }
+            
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(52, 152, 219, 0.5)';
+                    ctx.fill();
+                    
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    
+                    if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+                }
+                
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+            
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+        
+        // عرض تأثير التحميل
+        function showLoading() {
+            loadingOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // إخفاء تأثير التحميل
+        function hideLoading() {
+            loadingOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // تعيين السنة الحالية في الفوتر
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // تهيئة الخلفية المضيئة
+        initBackgroundAnimation();
+        
+        // تحميل المحتوى عند بدء التشغيل
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSiteSettings();
+            
+            // تحميل محتوى السيرة الذاتية من Firebase أو استخدام المحتوى المحلي
+            const aboutRef = ref(database, 'about/content');
+            onValue(aboutRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    document.getElementById('aboutContent').innerHTML = snapshot.val();
+                }
+                // تطبيق الإعدادات على البطاقات
+                applySettingsToCards(document.getElementById('aboutContent'));
+            }, {
+                onlyOnce: true
+            });
+            
+            // تحميل عنوان السيرة الذاتية
+            const aboutTitleRef = ref(database, 'about/title');
+            onValue(aboutTitleRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    document.getElementById('aboutTitle').value = snapshot.val();
+                }
+            }, {
+                onlyOnce: true
+            });
+        });
+    </script>
+</body>
+</html>
