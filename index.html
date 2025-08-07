@@ -1253,7 +1253,7 @@
             <li>
                 <a href="#" data-section="videos">
                     <i class="fas fa-video"></i>
-                    <span>فيديوهات بحثية</span>
+                    <span>فيديوهات تعليمية</span>
                 </a>
             </li>
             <li>
@@ -1277,8 +1277,7 @@
     
     <footer>
         <div class="container">
-            <p>جميع الحقوق محفوظة &copy; <span id="year"></span> <span id="siteName">أ
-            د:محمد ابيب سالم</span></p>
+            <p>جميع الحقوق محفوظة &copy; <span id="year"></span> <span id="siteName">البروفيسور محمد ليب سالم</span></p>
         </div>
     </footer>
     
@@ -1341,7 +1340,6 @@
             <h2>الصحافة والإعلام</h2>
         </div>
         <div class="section-content">
-            <!-- المحتوى سيتم تحميله من Firebase -->
             <p style="text-align:center;color:#777;grid-column:1/-1;">جاري تحميل المحتوى...</p>
         </div>
         <div class="buttons-container">
@@ -1357,7 +1355,6 @@
             <h2>بحوث علمية</h2>
         </div>
         <div class="section-content">
-            <!-- المحتوى سيتم تحميله من Firebase -->
             <p style="text-align:center;color:#777;grid-column:1/-1;">جاري تحميل المحتوى...</p>
         </div>
         <div class="buttons-container">
@@ -1365,15 +1362,14 @@
         </div>
     </div>
     
-    <!-- قسم الفيديوهات البحثية العائم -->
+    <!-- قسم الفيديوهات التعليمية العائم -->
     <div class="floating-section" id="floatingVideos">
         <button class="close-btn" id="closeFloatingVideos"><i class="fas fa-times"></i></button>
         <div class="section-title">
             <i class="fas fa-video"></i>
-            <h2>فيديوهات بحثية</h2>
+            <h2>فيديوهات تعليمية</h2>
         </div>
         <div class="section-content">
-            <!-- المحتوى سيتم تحميله من Firebase -->
             <p style="text-align:center;color:#777;grid-column:1/-1;">جاري تحميل المحتوى...</p>
         </div>
         <div class="buttons-container">
@@ -1389,7 +1385,6 @@
             <h2>كتب وروايات</h2>
         </div>
         <div class="section-content">
-            <!-- المحتوى سيتم تحميله من Firebase -->
             <p style="text-align:center;color:#777;grid-column:1/-1;">جاري تحميل المحتوى...</p>
         </div>
         <div class="buttons-container">
@@ -1405,7 +1400,6 @@
             <h2>مقالات</h2>
         </div>
         <div class="section-content">
-            <!-- المحتوى سيتم تحميله من Firebase -->
             <p style="text-align:center;color:#777;grid-column:1/-1;">جاري تحميل المحتوى...</p>
         </div>
         <div class="buttons-container">
@@ -1426,6 +1420,7 @@
                 <button class="admin-tab-btn" data-tab="add-button">إضافة زر</button>
                 <button class="admin-tab-btn" data-tab="buttons-management">إدارة الأزرار</button>
                 <button class="admin-tab-btn" data-tab="edit-about">تعديل السيرة</button>
+                <button class="admin-tab-btn" data-tab="sections-management">إدارة الأقسام</button>
                 <button class="admin-tab-btn" data-tab="new-section">قسم جديد</button>
                 <button class="admin-tab-btn" data-tab="settings">الإعدادات</button>
             </div>
@@ -1438,7 +1433,7 @@
                         <option value="about">من أنا</option>
                         <option value="media">الصحافة والإعلام</option>
                         <option value="research">بحوث علمية</option>
-                        <option value="videos">فيديوهات بحثية</option>
+                        <option value="videos">فيديوهات تعليمية</option>
                         <option value="books">كتب وروايات</option>
                         <option value="articles">مقالات</option>
                     </select>
@@ -1484,7 +1479,7 @@
                         <option value="about">من أنا</option>
                         <option value="media">الصحافة والإعلام</option>
                         <option value="research">بحوث علمية</option>
-                        <option value="videos">فيديوهات بحثية</option>
+                        <option value="videos">فيديوهات تعليمية</option>
                         <option value="books">كتب وروايات</option>
                         <option value="articles">مقالات</option>
                     </select>
@@ -1545,14 +1540,13 @@
                         <option value="about">من أنا</option>
                         <option value="media">الصحافة والإعلام</option>
                         <option value="research">بحوث علمية</option>
-                        <option value="videos">فيديوهات بحثية</option>
+                        <option value="videos">فيديوهات تعليمية</option>
                         <option value="books">كتب وروايات</option>
                         <option value="articles">مقالات</option>
                     </select>
                 </div>
                 
                 <div class="buttons-list" id="buttonsList">
-                    <!-- الأزرار سيتم تحميلها هنا -->
                     <p style="text-align:center;color:#777;">اختر قسمًا لعرض الأزرار الخاصة به</p>
                 </div>
             </div>
@@ -1570,6 +1564,16 @@
                 </div>
                 
                 <button class="admin-btn" id="saveAboutBtn"><i class="fas fa-save"></i> حفظ السيرة الذاتية</button>
+            </div>
+            
+            <!-- تبويب إدارة الأقسام -->
+            <div class="admin-tab-content" id="sections-management">
+                <div class="admin-form-group">
+                    <label>الأقسام الحالية:</label>
+                    <div class="sections-list" id="sectionsList">
+                        <p style="text-align:center;color:#777;">جاري تحميل الأقسام...</p>
+                    </div>
+                </div>
             </div>
             
             <!-- تبويب قسم جديد -->
@@ -1872,7 +1876,12 @@
                     floatingSections[sectionId].classList.add('active');
                     overlay.classList.add('active');
                     document.body.style.overflow = 'hidden';
-                    showLoading();
+                    
+                    // لا نعرض تأثير التحميل لقسم "من أنا"
+                    if (sectionId !== 'about') {
+                        showLoading();
+                    }
+                    
                     loadContentForSection(sectionId);
                     loadButtonsForSection(sectionId).then(() => {
                         hideLoading();
@@ -1905,6 +1914,11 @@
                 // إذا كان التبويب هو تعديل السيرة الذاتية، قم بتحميل المحتوى
                 if (tabId === 'edit-about') {
                     loadAboutContentForEdit();
+                }
+                
+                // إذا كان التبويب هو إدارة الأقسام، قم بتحميل الأقسام
+                if (tabId === 'sections-management') {
+                    loadSectionsForManagement();
                 }
             });
         });
@@ -2100,170 +2114,97 @@
             });
         });
         
-        // حفظ الإعدادات
-        document.getElementById('saveSettingsBtn').addEventListener('click', () => {
-            const newPassword = document.getElementById('adminPasswordChange').value;
-            const confirmPassword = document.getElementById('adminPasswordConfirm').value;
-            const profileImage = document.getElementById('profileImageUrl').value;
-            const profileTitle = document.getElementById('profileTitle').value;
-            const siteName = document.getElementById('siteNameInput').value;
-            const glowEffect = document.getElementById('glowEffectToggle').value;
-            const glowBorders = document.getElementById('glowBordersToggle').value;
-            const modernDesign = document.getElementById('modernDesignToggle').value;
-            const maintenanceMode = document.getElementById('maintenanceToggle').value;
+        // تحميل الأقسام للإدارة
+        function loadSectionsForManagement() {
+            const sectionsList = document.getElementById('sectionsList');
+            sectionsList.innerHTML = '<p style="text-align:center;color:#777;">جاري تحميل الأقسام...</p>';
             
-            if (newPassword && newPassword !== confirmPassword) {
-                showAlert('كلمة المرور غير متطابقة!', 'error');
-                return;
-            }
+            const sectionsRef = ref(database, 'sections');
             
-            showLoading();
-            const updates = {};
-            
-            if (profileImage) {
-                document.querySelector('.profile-image').src = profileImage;
-                updates['settings/profileImage'] = profileImage;
-            }
-            
-            if (profileTitle) {
-                document.querySelector('.profile-info .title').textContent = profileTitle;
-                updates['settings/profileTitle'] = profileTitle;
-            }
-            
-            if (siteName) {
-                document.getElementById('siteName').textContent = siteName;
-                updates['settings/siteName'] = siteName;
-            }
-            
-            // Get selected color
-            const selectedColor = document.querySelector('.color-option.selected');
-            if (selectedColor) {
-                const startColor = selectedColor.getAttribute('data-start');
-                const endColor = selectedColor.getAttribute('data-end');
-                updates['settings/gradientStart'] = startColor;
-                updates['settings/gradientEnd'] = endColor;
-            }
-            
-            // Get selected animation
-            const selectedAnimation = document.querySelector('.animation-option.selected');
-            if (selectedAnimation) {
-                const animationType = selectedAnimation.getAttribute('data-animation');
-                updates['settings/animationType'] = animationType;
-            }
-            
-            updates['settings/glowEffect'] = glowEffect === 'on';
-            updates['settings/glowBorders'] = glowBorders === 'on';
-            updates['settings/modernDesign'] = modernDesign === 'on';
-            updates['settings/maintenanceMode'] = maintenanceMode === 'on';
-            
-            // تطبيق التغييرات على الفور
-            if (glowEffect === 'on') {
-                bgAnimation.classList.add('active');
-            } else {
-                bgAnimation.classList.remove('active');
-            }
-            
-            if (glowBorders === 'on') {
-                document.querySelectorAll('.floating-section, .card, .custom-btn').forEach(el => {
-                    el.classList.add('glow-border');
-                });
-            } else {
-                document.querySelectorAll('.floating-section, .card, .custom-btn').forEach(el => {
-                    el.classList.remove('glow-border');
-                });
-            }
-            
-            if (modernDesign === 'on') {
-                document.querySelectorAll('.floating-section, .card, .custom-btn').forEach(el => {
-                    el.classList.add('modern-design');
-                });
-            } else {
-                document.querySelectorAll('.floating-section, .card, .custom-btn').forEach(el => {
-                    el.classList.remove('modern-design');
-                });
-            }
-            
-            // وضع الصيانة
-            if (maintenanceMode === 'on') {
-                body.classList.add('maintenance-mode');
-            } else {
-                body.classList.remove('maintenance-mode');
-            }
-            
-            // تحديث قاعدة البيانات
-            update(ref(database), updates).then(() => {
-                showAlert('تم حفظ الإعدادات بنجاح!', 'success');
-                if (newPassword) {
-                    document.getElementById('adminPasswordChange').value = '';
-                    document.getElementById('adminPasswordConfirm').value = '';
+            onValue(sectionsRef, (snapshot) => {
+                sectionsList.innerHTML = '';
+                
+                if (!snapshot.exists()) {
+                    sectionsList.innerHTML = '<p style="text-align:center;color:#777;">لا توجد أقسام مضافة</p>';
+                    return;
                 }
-                hideLoading();
-            }).catch(error => {
-                console.error('Error saving settings:', error);
-                showAlert('حدث خطأ أثناء حفظ الإعدادات', 'error');
-                hideLoading();
-            });
-        });
-        
-        // إعادة ضبط الإعدادات
-        document.getElementById('resetSettingsBtn').addEventListener('click', () => {
-            if (confirm('هل أنت متأكد من إعادة ضبط جميع الإعدادات إلى القيم الافتراضية؟')) {
-                showLoading();
                 
-                // Reset to default settings
-                const defaultSettings = {
-                    'settings/profileImage': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAd_KwAlFC_QiVp3yyz3FjsTcvONhQE3kP32b5xwkY8S4kZro0k0d4Uk_tM_qSZixBR1se7wnOcSSShCbmvgyB3YVIN5h5evF8tl1qI_K-UJYpPSzFHIiDaqwaH5V0QmiIo2EnZbLU1nlfYvEO6lJsMq71aXIjUEnHhmCHLoTQHrJwr5eFziRKPxSJOhR_/s678/IMG-20250711-WA0212.jpg',
-                    'settings/profileTitle': 'أستاذ علم المناعة بكلية العلوم – جامعة طنطا – مصر',
-                    'settings/siteName': 'البروفيسور محمد ليب سالم',
-                    'settings/gradientStart': '#3498db',
-                    'settings/gradientEnd': '#2c3e50',
-                    'settings/animationType': 'fadeIn',
-                    'settings/glowEffect': true,
-                    'settings/glowBorders': true,
-                    'settings/modernDesign': false,
-                    'settings/maintenanceMode': false
-                };
-                
-                update(ref(database), defaultSettings).then(() => {
-                    // Reload the page to apply all changes
-                    window.location.reload();
-                }).catch(error => {
-                    console.error('Error resetting settings:', error);
-                    showAlert('حدث خطأ أثناء إعادة ضبط الإعدادات', 'error');
-                    hideLoading();
-                });
-            }
-        });
-        
-        // إيقاف جميع التأثيرات
-        document.getElementById('disableEffectsBtn').addEventListener('click', () => {
-            if (confirm('هل أنت متأكد من إيقاف جميع التأثيرات والأنيميشنات؟')) {
-                showLoading();
-                
-                // Disable all effects
-                const updates = {
-                    'settings/glowEffect': false,
-                    'settings/glowBorders': false,
-                    'settings/modernDesign': false,
-                    'settings/animationType': 'none'
-                };
-                
-                update(ref(database), updates).then(() => {
-                    // Apply changes immediately
-                    bgAnimation.classList.remove('active');
-                    document.querySelectorAll('.floating-section, .card, .custom-btn').forEach(el => {
-                        el.classList.remove('glow-border', 'modern-design', 'animate__animated');
-                    });
+                snapshot.forEach((childSnapshot) => {
+                    const section = childSnapshot.val();
+                    const sectionId = childSnapshot.key;
                     
-                    showAlert('تم إيقاف جميع التأثيرات بنجاح!', 'success');
-                    hideLoading();
-                }).catch(error => {
-                    console.error('Error disabling effects:', error);
-                    showAlert('حدث خطأ أثناء إيقاف التأثيرات', 'error');
-                    hideLoading();
+                    const sectionItem = document.createElement('div');
+                    sectionItem.className = 'admin-section-item';
+                    sectionItem.style.display = 'flex';
+                    sectionItem.style.justifyContent = 'space-between';
+                    sectionItem.style.alignItems = 'center';
+                    sectionItem.style.padding = '10px';
+                    sectionItem.style.marginBottom = '10px';
+                    sectionItem.style.backgroundColor = 'var(--card-bg)';
+                    sectionItem.style.borderRadius = '8px';
+                    
+                    sectionItem.innerHTML = `
+                        <div>
+                            <strong><i class="fas ${section.icon}"></i> ${section.name}</strong>
+                            <br>
+                            <small>${section.desc || 'لا يوجد وصف'}</small>
+                        </div>
+                        <div>
+                            <button class="delete-section-btn" data-id="${sectionId}" style="background: var(--accent-color); color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">حذف</button>
+                        </div>
+                    `;
+                    
+                    sectionsList.appendChild(sectionItem);
                 });
-            }
-        });
+                
+                // إضافة مستمعات الأحداث لأزرار الحذف
+                document.querySelectorAll('.delete-section-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const sectionId = e.target.getAttribute('data-id');
+                        
+                        if (confirm(`هل أنت متأكد من حذف هذا القسم؟ سيتم حذف جميع محتوياته أيضًا`)) {
+                            showLoading();
+                            
+                            // حذف القسم من القائمة
+                            const sectionRef = ref(database, `sections/${sectionId}`);
+                            remove(sectionRef).then(() => {
+                                // حذف المحتوى المرتبط بهذا القسم
+                                const contentRef = ref(database, `content/${sectionId}`);
+                                remove(contentRef).then(() => {
+                                    // حذف الأزرار المرتبطة بهذا القسم
+                                    const buttonsRef = ref(database, `buttons/${sectionId}`);
+                                    remove(buttonsRef).then(() => {
+                                        // إزالة القسم من واجهة المستخدم
+                                        removeSectionFromUI(sectionId);
+                                        showAlert('تم حذف القسم بنجاح', 'success');
+                                        hideLoading();
+                                    });
+                                });
+                            }).catch(error => {
+                                console.error('Error deleting section:', error);
+                                showAlert('حدث خطأ أثناء حذف القسم', 'error');
+                                hideLoading();
+                            });
+                        }
+                    });
+                });
+            });
+        }
+        
+        // إزالة قسم من واجهة المستخدم
+        function removeSectionFromUI(sectionId) {
+            // إزالة من القائمة
+            const navLinks = document.querySelector('.nav-links');
+            const navItem = document.querySelector(`.nav-links a[data-section="${sectionId}"]`)?.parentElement;
+            if (navItem) navItem.remove();
+            
+            // إزالة القسم العائم
+            const floatingSection = document.getElementById(`floating${sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}`);
+            if (floatingSection) floatingSection.remove();
+            
+            // إزالة من كائن floatingSections
+            delete floatingSections[sectionId];
+        }
         
         // تحميل الأزرار للإدارة
         function loadButtonsForManagement() {
@@ -2424,24 +2365,11 @@
             
             const contentContainer = section.querySelector('.section-content');
             
-            // إذا كان القسم هو "من أنا"، نستخدم المحتوى المحلي إذا لم يكن هناك اتصال
+            // إذا كان القسم هو "من أنا"، نستخدم المحتوى المحلي مباشرة دون انتظار
             if (sectionId === 'about') {
-                const aboutRef = ref(database, 'about/content');
-                
-                onValue(aboutRef, (snapshot) => {
-                    if (snapshot.exists()) {
-                        contentContainer.innerHTML = snapshot.val();
-                    } else {
-                        // استخدام المحتوى المحلي الافتراضي
-                        contentContainer.innerHTML = document.getElementById('aboutContent').innerHTML;
-                    }
-                    
-                    // تطبيق الإعدادات على البطاقات
-                    applySettingsToCards(contentContainer);
-                }, {
-                    onlyOnce: true
-                });
-                
+                const aboutContent = document.getElementById('aboutContent').innerHTML;
+                contentContainer.innerHTML = aboutContent;
+                applySettingsToCards(contentContainer);
                 return;
             }
             
@@ -2745,18 +2673,6 @@
         // تحميل المحتوى عند بدء التشغيل
         document.addEventListener('DOMContentLoaded', () => {
             loadSiteSettings();
-            
-            // تحميل محتوى السيرة الذاتية من Firebase أو استخدام المحتوى المحلي
-            const aboutRef = ref(database, 'about/content');
-            onValue(aboutRef, (snapshot) => {
-                if (snapshot.exists()) {
-                    document.getElementById('aboutContent').innerHTML = snapshot.val();
-                }
-                // تطبيق الإعدادات على البطاقات
-                applySettingsToCards(document.getElementById('aboutContent'));
-            }, {
-                onlyOnce: true
-            });
             
             // تحميل عنوان السيرة الذاتية
             const aboutTitleRef = ref(database, 'about/title');
